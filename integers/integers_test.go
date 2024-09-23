@@ -22,5 +22,5 @@ func assetCorrectMsg(t testing.TB, got, want int) {
 
 func ExampleAdder() {
 	fmt.Println(Adder(2, 2))
-	// Output 6
+	// Output: 6
 }
