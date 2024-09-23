@@ -2,6 +2,7 @@ package iteration
 
 import (
 	"fmt"
+	testinghelpers "learninggowithtests/helpers"
 	"testing"
 )
 
@@ -11,16 +12,10 @@ func TestRepeatPhrase(t *testing.T) {
 		got := RepeatPhrase("Dennis", 5)
 		want := "DennisDennisDennisDennisDennis"
 
-		assetCorrectMsg(t, got, want)
+		testinghelpers.AssetCorrectMsg(t, got, want, "Dennis, 5")
 	})
 }
 
-func assetCorrectMsg(t testing.TB, got, want string) {
-	t.Helper()
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
-}
 
 func BenchmarkRepeatPhrase(b *testing.B) {
 	for i := 0; i < b.N; i++ {
