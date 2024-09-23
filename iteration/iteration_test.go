@@ -6,7 +6,7 @@ import (
 )
 
 func TestRepeatPhrase(t *testing.T) {
-	t.Skip()
+	// t.Skip()
 	t.Run("returns str with input repeated n times", func(t *testing.T) {
 		got := RepeatPhrase("Dennis", 5)
 		want := "DennisDennisDennisDennisDennis"

@@ -1,14 +1,9 @@
 package iteration
 
 import (
-	"fmt"
+	"strings"
 )
 
-func RepeatPhrase(phrase string, times int) string {
-	repeated := phrase
-	for i := 0; i < times-1; i++ {
-		repeated += fmt.Sprintf("%s", phrase)
-	}
-
-	return repeated
+func RepeatPhrase(s string, count int) string {
+	return strings.Repeat(s, count)
 }
