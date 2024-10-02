@@ -30,17 +30,20 @@ func checkArea(t *testing.T, shape Shape, want float64) {
 
 func TestAreaTableDriven(t *testing.T) {
 	tests := []struct {
+		name  string
 		shape Shape
 		want  float64
 	}{
-		{Circle{10.0}, 314.159},
-		{Rectangle{10.0, 20.0}, 200.00},
+		{"circle area", Circle{10.0}, 314.16},
+		{"rectangle area", Rectangle{10.0, 20.0}, 200.00},
 	}
 
 	for _, test := range tests {
-		got := test.shape.Area()
-		if got != test.want {
-			t.Errorf("%#v got %v want %v", test.shape, got, test.want)
-		}
+		t.Run(test.name, func(t *testing.T) {
+			got := test.shape.Area()
+			if got != test.want {
+				t.Errorf("%#v got %v want %v", test.shape, got, test.want)
+			}
+		})
 	}
 }
