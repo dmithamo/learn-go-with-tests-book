@@ -6,28 +6,22 @@ type Dict struct {
 	Words map[string]string
 }
 
-type NotFoundErr string
-
-var NOT_FOUND_ERR NotFoundErr
-var WORD_EXISTS_ERR = errors.New("word already exists")
-
-func (e NotFoundErr) Error() string {
-	return "word not found"
-}
+var NotFoundErr = errors.New("word not found")
+var WordExistsErr = errors.New("word already exists")
 
 func (d *Dict) Search(key string) (string, error) {
 	def, ok := d.Words[key]
 	if !ok {
-		return "", NOT_FOUND_ERR
+		return "", NotFoundErr
 	}
 
 	return def, nil
 }
 
 func (d *Dict) Add(word, defn string) error {
-	_,err := d.Search(word)
+	_, err := d.Search(word)
 	if err == nil {
-		return WORD_EXISTS_ERR
+		return WordExistsErr
 	}
 
 	d.Words[word] = defn

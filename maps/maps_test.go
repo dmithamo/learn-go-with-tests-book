@@ -34,8 +34,8 @@ func TestDict(t *testing.T) {
 			t.Error("want error got nil")
 		}
 
-		if err != NOT_FOUND_ERR {
-			t.Errorf("want err %q got err %q", NOT_FOUND_ERR, err)
+		if err != NotFoundErr {
+			t.Errorf("want err %q got err %q", NotFoundErr, err)
 		}
 	})
 
@@ -69,8 +69,8 @@ func TestDict(t *testing.T) {
 			t.Error("expected error did not get error")
 		}
 
-		if err != WORD_EXISTS_ERR {
-			t.Errorf("expected err %q got err %q", WORD_EXISTS_ERR, err)
+		if err != WordExistsErr {
+			t.Errorf("expected err %q got err %q", WordExistsErr, err)
 		}
 	})
 
